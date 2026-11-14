@@ -11,17 +11,15 @@
   "orientation": "portrait-primary",
   "icons": [
     {
-      "src": "/assets/aistudio/POTHIK_Logo_with_Airborne_Road_Emblem_a02d98b0.png",
-      "sizes": "192x192 512x512",
-      "type": "image/png",
+      "src": "/pothik-brand-icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
       "purpose": "any"
-    },
-    {
-      "src": "/assets/aistudio/POTHIK_Logo_with_Airborne_Road_Emblem_a02d98b0.png",
-      "sizes": "192x192 512x512",
-      "type": "image/png",
-      "purpose": "maskable"
     }
   ],
-  "categories": ["travel", "lifestyle", "utilities"]
+  "categories": [
+    "travel",
+    "lifestyle",
+    "utilities"
+  ]
 }
