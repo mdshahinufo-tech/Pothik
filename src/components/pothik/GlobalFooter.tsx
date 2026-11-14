@@ -113,7 +113,7 @@ export const GlobalFooter: React.FC<GlobalFooterProps> = ({
           <div className="lg:col-span-2 space-y-4">
             <div className="flex items-center gap-3">
               <img 
-                src="/assets/aistudio/POTHIK_Logo_with_Airborne_Road_Emblem_a02d98b0.png" 
+                src="/pothik-brand-icon.svg" 
                 alt="POTHIK Logo" 
                 className="h-12 w-auto object-contain bg-white rounded-lg p-1" 
               />
