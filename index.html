@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <script>
+      // Shim window.fetch to provide both getter and setter for extensions and interceptors
+      (function() {
+        try {
+          var _fetch = window.fetch;
+          Object.defineProperty(window, 'fetch', {
+            get: function() { return _fetch; },
+            set: function(fn) { _fetch = fn; },
+            configurable: true,
+            enumerable: true
+          });
+        } catch (e) {}
+      })();
+    </script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#176B52" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="apple-mobile-web-app-title" content="POTHIK" />
+    <link rel="icon" type="image/png" href="/assets/aistudio/POTHIK_Logo_with_Airborne_Road_Emblem_a02d98b0.png" />
+    <link rel="apple-touch-icon" href="/assets/aistudio/POTHIK_Logo_with_Airborne_Road_Emblem_a02d98b0.png" />
+    <link rel="manifest" href="/manifest.json" />
+    <title>POTHIK (পথিক) - Saint Martin Ship Tickets, Resorts & Travel Pass</title>
+    <meta name="description" content="POTHIK (Every Road Leads Somewhere) - 100% authentic Saint Martin island tours, verified QR travel passes, guaranteed ship tickets, and confirmed resort bookings." />
+    <meta property="og:title" content="POTHIK (পথিক) - Saint Martin Tours & Tickets" />
+    <meta property="og:description" content="POTHIK: Every Road Leads Somewhere. Guaranteed ship tickets, verified beachfront resorts, and official digital QR travel passes." />
+    <meta property="og:type" content="website" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=Hind+Siliguri:wght@300;400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
+

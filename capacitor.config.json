@@ -1,0 +1,13 @@
+{
+  "appId": "com.pothik.travel",
+  "appName": "POTHIK",
+  "webDir": "dist",
+  "bundledWebRuntime": false,
+  "server": {
+    "androidScheme": "https"
+  },
+  "android": {
+    "backgroundColor": "#176B52",
+    "allowMixedContent": false
+  }
+}

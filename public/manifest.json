@@ -1,0 +1,27 @@
+{
+  "id": "/",
+  "name": "POTHIK - Travel Platform",
+  "short_name": "POTHIK",
+  "description": "Every Road Leads Somewhere. All-in-one travel agency for Bangladesh domestic and international tours, flights, hotels, and visa assistance.",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#176B52",
+  "theme_color": "#176B52",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "/assets/aistudio/POTHIK_Logo_with_Airborne_Road_Emblem_a02d98b0.png",
+      "sizes": "192x192 512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/assets/aistudio/POTHIK_Logo_with_Airborne_Road_Emblem_a02d98b0.png",
+      "sizes": "192x192 512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ],
+  "categories": ["travel", "lifestyle", "utilities"]
+}

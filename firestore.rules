@@ -1,0 +1,68 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    // Global Safety Net: Default deny all
+    match /{document=**} {
+      allow read, write: if false;
+    }
+
+    // Helper functions
+    function isSignedIn() {
+      return request.auth != null;
+    }
+
+    function isOwner(userId) {
+      return isSignedIn() && request.auth.uid == userId;
+    }
+
+    function isValidId(id) {
+      return id is string && id.size() <= 128 && id.matches('^[a-zA-Z0-9_\\-]+$');
+    }
+
+    function incoming() {
+      return request.resource.data;
+    }
+
+    function existing() {
+      return resource.data;
+    }
+
+    // Connection test document
+    match /test/connection {
+      allow read: if true;
+    }
+
+    // Bookings collection
+    match /bookings/{bookingId} {
+      // Allow single document get so tickets can be scanned/verified by anyone with the Pass ID
+      allow get: if isValidId(bookingId);
+
+      // Secure list query: Authenticated user can query their own bookings
+      allow list: if isSignedIn() && resource.data.userId == request.auth.uid;
+
+      // Create booking: Basic schema validation
+      allow create: if isValidId(bookingId) &&
+        incoming().passNumber is string && incoming().passNumber.size() <= 64 &&
+        incoming().passengerName is string && incoming().passengerName.size() <= 120 &&
+        incoming().phone is string && incoming().phone.size() <= 30 &&
+        incoming().shipName is string && incoming().shipName.size() <= 100 &&
+        incoming().resortName is string && incoming().resortName.size() <= 100 &&
+        incoming().status in ['CONFIRMED', 'COMPLETED', 'CANCELLED'];
+
+      // Update booking: Only the owner can update status
+      allow update: if isSignedIn() && 
+        existing().userId == request.auth.uid &&
+        incoming().userId == existing().userId &&
+        incoming().passNumber == existing().passNumber;
+
+      // Immutable: No deletion allowed to protect audit trail
+      allow delete: if false;
+    }
+
+    // User Google Drive travel documents
+    match /users/{userId}/drive_docs/{docId} {
+      allow read, write: if isOwner(userId) && isValidId(userId) && isValidId(docId);
+    }
+  }
+}

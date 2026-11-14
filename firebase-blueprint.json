@@ -1,0 +1,121 @@
+{
+  "entities": {
+    "Booking": {
+      "title": "Booking",
+      "description": "A confirmed Saint Martin trip booking containing travel pass and vessel reservations",
+      "type": "object",
+      "properties": {
+        "passNumber": {
+          "type": "string",
+          "description": "Unique QR travel pass ID (e.g. STM-2025-9942)",
+          "maxLength": 64
+        },
+        "userId": {
+          "type": "string",
+          "description": "Firebase Auth UID of the user who made the reservation",
+          "maxLength": 128
+        },
+        "passengerName": {
+          "type": "string",
+          "description": "Full name of the primary passenger matching NID",
+          "maxLength": 120
+        },
+        "phone": {
+          "type": "string",
+          "description": "Contact mobile number for SMS ticket confirmation",
+          "maxLength": 30
+        },
+        "nid": {
+          "type": "string",
+          "description": "National ID or Passport number",
+          "maxLength": 50
+        },
+        "shipName": {
+          "type": "string",
+          "description": "Vessel name (MV Bay One, Karnafuly Express, etc.)",
+          "maxLength": 100
+        },
+        "resortName": {
+          "type": "string",
+          "description": "Confirmed beachfront resort or eco cottage",
+          "maxLength": 100
+        },
+        "travelDate": {
+          "type": "string",
+          "description": "Departure date for the island trip",
+          "maxLength": 30
+        },
+        "returnDate": {
+          "type": "string",
+          "description": "Return date to Cox's Bazar / Teknaf",
+          "maxLength": 30
+        },
+        "travelersCount": {
+          "type": "number",
+          "description": "Total number of passengers traveling"
+        },
+        "totalAmount": {
+          "type": "number",
+          "description": "Total estimated package or ticket cost in BDT"
+        },
+        "status": {
+          "type": "string",
+          "description": "Booking status (CONFIRMED, COMPLETED, CANCELLED)",
+          "enum": ["CONFIRMED", "COMPLETED", "CANCELLED"]
+        },
+        "createdAt": {
+          "type": "string",
+          "description": "ISO timestamp when the booking was created"
+        }
+      },
+      "required": ["passNumber", "passengerName", "phone", "shipName", "resortName", "travelDate", "returnDate", "status"]
+    },
+    "DriveFileRecord": {
+      "title": "DriveFileRecord",
+      "description": "Reference metadata for travel documents saved to user's Google Drive",
+      "type": "object",
+      "properties": {
+        "fileId": {
+          "type": "string",
+          "description": "Google Drive File ID",
+          "maxLength": 128
+        },
+        "fileName": {
+          "type": "string",
+          "description": "Display name of the saved pass file",
+          "maxLength": 200
+        },
+        "passNumber": {
+          "type": "string",
+          "description": "Associated St. Martin travel pass number",
+          "maxLength": 64
+        },
+        "driveUrl": {
+          "type": "string",
+          "description": "Web link to view file in Google Drive",
+          "maxLength": 500
+        },
+        "userId": {
+          "type": "string",
+          "description": "UID of the user who owns this Google Drive record",
+          "maxLength": 128
+        },
+        "savedAt": {
+          "type": "string",
+          "description": "Timestamp when the file was saved to Google Drive"
+        }
+      },
+      "required": ["fileId", "fileName", "passNumber", "userId"]
+    }
+  },
+  "firestore": {
+    "/bookings/{bookingId}": {
+      "schema": "Booking",
+      "description": "Collection of verified island trip bookings and travel passes"
+    },
+    "/users/{userId}/drive_docs/{docId}": {
+      "schema": "DriveFileRecord",
+      "description": "Subcollection of Google Drive pass receipts for a user"
+    }
+  }
+}

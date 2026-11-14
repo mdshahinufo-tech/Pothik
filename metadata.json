@@ -1,0 +1,6 @@
+{
+  "name": "Tripbooking.ai - Saint Martin Tours & Tickets",
+  "description": "Authentic Saint Martin island tours, verified QR travel passes, guaranteed ship tickets, resort bookings, and instant Gemini AI voice text-to-speech companion.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
