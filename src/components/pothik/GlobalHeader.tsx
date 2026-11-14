@@ -133,7 +133,7 @@ export const GlobalHeader: React.FC<GlobalHeaderProps> = ({
               className="flex items-center gap-3 group text-left cursor-pointer"
             >
               <img 
-                src="/assets/aistudio/POTHIK_Logo_with_Airborne_Road_Emblem_a02d98b0.png" 
+                src="/pothik-brand-icon.svg" 
                 alt="POTHIK Logo" 
                 className="h-12 w-auto object-contain transition group-hover:scale-105 duration-200" 
               />
