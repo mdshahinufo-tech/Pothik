@@ -77,7 +77,7 @@ export const PWAInstallButton: React.FC<PWAInstallButtonProps> = ({
             <div className="flex items-start justify-between gap-4">
               <div className="flex items-center gap-3">
                 <img
-                  src="/assets/aistudio/POTHIK_Logo_with_Airborne_Road_Emblem_a02d98b0.png"
+                  src="/pothik-brand-icon.svg"
                   alt="POTHIK App Icon"
                   referrerPolicy="no-referrer"
                   className="w-11 h-11 rounded-xl object-contain border border-slate-200 bg-white p-1"
