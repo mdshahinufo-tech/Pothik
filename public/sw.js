@@ -1,10 +1,10 @@
 // POTHIK Service Worker
-const CACHE_NAME = 'pothik-v1';
+const CACHE_NAME = 'pothik-v2';
 const ASSETS_TO_CACHE = [
   '/',
   '/index.html',
   '/manifest.json',
-  '/assets/aistudio/POTHIK_Logo_with_Airborne_Road_Emblem_a02d98b0.png'
+  '/pothik-brand-icon.svg'
 ];
 
 self.addEventListener('install', (event) => {
